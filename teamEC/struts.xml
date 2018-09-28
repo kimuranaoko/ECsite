@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 開発者モード(デバッグしたい時にはコメント外してください。ユーザーのエラーページが無効にできます) -->
+	<!-- <constant name="struts.devMode" value="true" /> -->
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.multipart.maxSize" value="-1" />
+	<package name="com.internousdev.kiyurumi.action" extends="struts-default">
+
+		<!-- カート関連 -->
+
+	<action name="AddCartAction" class="com.internousdev.kiyurumi.action.AddCartAction" method="execute">
+    <interceptor-ref name="defaultStack"/>
+    <interceptor-ref name="token"/>
+		<result name="success">cart.jsp</result>
+		<result name="error">home.jsp</result>
+		<result name="input">cart.jsp</result>
+<<<<<<< HEAD
+		<result name="invalid.token">home.jsp</result>
+=======
+>>>>>>> 670b24cbc299241511ddc3809bacd4a6f8ce55f0
+	</action>
+
+	<action name="CartAction" class="com.internousdev.kiyurumi.action.CartAction" method="execute">
+		<result name="success">cart.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="DeleteCartAction" class="com.internousdev.kiyurumi.action.DeleteCartAction" method="execute">
+		<result name="success">cart.jsp</result>
+		<result name="error">cart.jsp</result>
+	</action>
+
+
+		<!-- 宛先登録 -->
+	<action name="CreateDestinationAction" class="com.internousdev.kiyurumi.action.CreateDestinationAction" method="execute">
+		<result name="success">createDestination.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="CreateDestinationCompleteAction" class="com.internousdev.kiyurumi.action.CreateDestinationCompleteAction" method="execute">
+		<result name="success">createDestinationComplete.jsp</result>
+		<result name="error">createDestination.jsp</result>
+	</action>
+
+	<action name="CreateDestinationConfirmAction" class="com.internousdev.kiyurumi.action.CreateDestinationConfirmAction" method="execute">
+		<result name="success">createDestinationConfirm.jsp</result>
+		<result name="error">createDestination.jsp</result>
+	</action>
+
+
+		<!-- ユーザー新規登録 -->
+	<action name="CreateUserAction" class="com.internousdev.kiyurumi.action.CreateUserAction" method="execute">
+		<result name="success">createUser.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+    <action name="CreateUserCompleteAction" class="com.internousdev.kiyurumi.action.CreateUserCompleteAction" method="execute">
+		<result name="success">createUserComplete.jsp</result>
+		<result name="error">createUser.jsp</result>
+	</action>
+
+    <action name="CreateUserConfirmAction" class="com.internousdev.kiyurumi.action.CreateUserConfirmAction" method="execute">
+		<result name="success">createUserConfirm.jsp</result>
+		<result name="error">createUser.jsp</result>
+	</action>
+
+
+		<!-- ログイン関連 -->
+	<action name="GoLoginAction" class="com.internousdev.kiyurumi.action.GoLoginAction" method="execute">
+		<result name="success">login.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="HomeAction" class="com.internousdev.kiyurumi.action.HomeAction" method="execute">
+		<result name="success">home.jsp</result>
+		<result name="admin">admin.jsp</result>
+	</action>
+
+	<action name="LoginAction" class="com.internousdev.kiyurumi.action.LoginAction" method="execute">
+		<result name="success">home.jsp</result>
+		<result name="settlement">settlementConfirm.jsp</result>
+		<result name="admin">admin.jsp</result>
+		<result name="error">login.jsp</result>
+	</action>
+
+	<action name="LogoutAction" class="com.internousdev.kiyurumi.action.LogoutAction" method="execute">
+		<result name="success">index.jsp</result>
+		<result name="error">index.jsp</result>
+	</action>
+
+
+		<!-- MyPage関連 -->
+	<action name="MyPageAction" class="com.internousdev.kiyurumi.action.MyPageAction" method="execute">
+		<result name="success">mypage.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="DeletePurchaseHistoryAction" class="com.internousdev.kiyurumi.action.DeletePurchaseHistoryAction" method="execute">
+		<result name="success">purchaseHistory.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="PurchaseHistoryAction" class="com.internousdev.kiyurumi.action.PurchaseHistoryAction" method="execute">
+		<result name="success">purchaseHistory.jsp</result>
+		<result name="admin">adminPurchaseHistory.jsp</result>
+	</action>
+
+
+		<!-- 商品関連 -->
+	<action name="ProductDetailsAction" class="com.internousdev.kiyurumi.action.ProductDetailsAction" method="execute">
+		<result name="success">productDetails.jsp</result>
+		<result name="error">productList.jsp</result>
+	</action>
+
+	<action name="ProductListAction" class="com.internousdev.kiyurumi.action.ProductListAction" method="execute">
+		<result name="success">productList.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="SearchItemAction" class="com.internousdev.kiyurumi.action.SearchItemAction" method="execute">
+		<result name="success">productList.jsp</result>
+		<result name="error">productList.jsp</result>
+	</action>
+
+
+		<!-- パスワード再設定 -->
+	<action name="ResetPasswordAction" class="com.internousdev.kiyurumi.action.ResetPasswordAction" method="execute">
+		<result name="success">resetPassword.jsp</result>
+		<result name="error">login.jsp</result>
+	</action>
+
+	<action name="ResetPasswordCompleteAction" class="com.internousdev.kiyurumi.action.ResetPasswordCompleteAction" method="execute">
+		<result name="success">resetPasswordComplete.jsp</result>
+		<result name="error">resetPassword.jsp</result>
+	</action>
+
+	<action name="ResetPasswordConfirmAction" class="com.internousdev.kiyurumi.action.ResetPasswordConfirmAction" method="execute">
+		<result name="success">resetPasswordConfirm.jsp</result>
+		<result name="error">resetPassword.jsp</result>
+	</action>
+
+
+		<!-- 決済関連 -->
+	<action name="SettlementCompleteAction" class="com.internousdev.kiyurumi.action.SettlementCompleteAction" method="execute">
+		<result name="success">settlementComplete.jsp</result>
+		<result name="error">settlementConfirm.jsp</result>
+	</action>
+
+	<action name="SettlementConfirmAction" class="com.internousdev.kiyurumi.action.SettlementConfirmAction" method="execute">
+		<result name="success">settlementConfirm.jsp</result>
+		<result name="error">login.jsp</result>
+	</action>
+
+
+
+		<!-- 管理者部分 -->
+	<action name="AdminAction" class="com.internousdev.kiyurumi.action.AdminAction" method="execute">
+		<result name="success">admin.jsp</result>
+	</action>
+
+
+		<!-- 管理者商品系 -->
+	<action name="AdminItemListAction" class="com.internousdev.kiyurumi.action.AdminItemListAction" method="execute">
+		<result name="success">adminItemList.jsp</result>
+	</action>
+
+	<action name="AdminItemCreateAction" class="com.internousdev.kiyurumi.action.AdminItemCreateAction" method="execute">
+		<result name="success">adminItemCreate.jsp</result>
+		<result name="error">admin.jsp</result>
+	</action>
+
+	<action name="AdminItemCreateConfirmAction" class="com.internousdev.kiyurumi.action.AdminItemCreateConfirmAction" method="execute">
+		<result name="success">adminItemCreateConfirm.jsp</result>
+		<result name="error">adminItemCreate.jsp</result>
+		<result name="input">adminItemCreate.jsp</result>
+	</action>
+
+	<action name="AdminItemCreateCompleteAction" class="com.internousdev.kiyurumi.action.AdminItemCreateCompleteAction" method="execute">
+		<result name="success">adminItemCreateComplete.jsp</result>
+		<result name="error">adminItemCreateConfirm.jsp</result>
+	</action>
+
+	<action name="AdminItemDeleteAction" class="com.internousdev.kiyurumi.action.AdminItemDeleteAction" method="execute">
+		<result name="success">adminItemList.jsp</result>
+	</action>
+
+	<action name="AdminItemUpdateAction" class="com.internousdev.kiyurumi.action.AdminItemUpdateAction" method="execute">
+		<result name="success">adminItemUpdate.jsp</result>
+		<result name="error">adminItemList.jsp</result>
+	</action>
+
+	<action name="AdminItemUpdateConfirmAction" class="com.internousdev.kiyurumi.action.AdminItemUpdateConfirmAction" method="execute">
+		<result name="success">adminItemUpdateConfirm.jsp</result>
+		<result name="error">adminItemUpdate.jsp</result>
+	</action>
+
+	<action name="AdminItemUpdateCompleteAction" class="com.internousdev.kiyurumi.action.AdminItemUpdateCompleteAction" method="execute">
+		<result name="success">adminItemUpdateComplete.jsp</result>
+		<result name="error">adminItemUpdateConfirm.jsp</result>
+	</action>
+
+
+		<!-- 管理者ユーザー系 -->
+	<action name="AdminUserListAction" class="com.internousdev.kiyurumi.action.AdminUserListAction" method="execute">
+		<result name="success">adminUserList.jsp</result>
+	</action>
+
+	<action name="AdminUserUpdateAction" class="com.internousdev.kiyurumi.action.AdminUserUpdateAction" method="execute">
+		<result name="success">adminUserUpdate.jsp</result>
+		<result name="error">adminUserCreate.jsp</result>
+	</action>
+
+	<action name="AdminUserUpdateConfirmAction" class="com.internousdev.kiyurumi.action.AdminUserUpdateConfirmAction" method="execute">
+		<result name="success">adminUserUpdateConfirm.jsp</result>
+		<result name="error">adminUserUpdate.jsp</result>
+	</action>
+
+	<action name="AdminUserUpdateCompleteAction" class="com.internousdev.kiyurumi.action.AdminUserUpdateCompleteAction" method="execute">
+		<result name="success">adminUserUpdateComplete.jsp</result>
+		<result name="error">adminUserUpdate.jsp</result>
+	</action>
+
+	<action name="AdminUserCreateAction" class="com.internousdev.kiyurumi.action.AdminUserCreateAction" method="execute">
+		<result name="success">adminUserCreate.jsp</result>
+		<result name="error">admin.jsp</result>
+	</action>
+
+	<action name="AdminUserCreateConfirmAction" class="com.internousdev.kiyurumi.action.AdminUserCreateConfirmAction" method="execute">
+		<result name="success">adminUserCreateConfirm.jsp</result>
+		<result name="error">adminUserCreate.jsp</result>
+	</action>
+
+	<action name="AdminUserCreateCompleteAction" class="com.internousdev.kiyurumi.action.AdminUserCreateCompleteAction" method="execute">
+		<result name="success">adminUserCreateComplete.jsp</result>
+		<result name="error">adminUserCreate.jsp</result>
+	</action>
+
+	<action name="AdminUserDeleteAction" class="com.internousdev.kiyurumi.action.AdminUserDeleteAction" method="execute">
+		<result name="success">adminUserList.jsp</result>
+	</action>
+
+
+		<!-- 管理者データー確認 -->
+	<action name="AdminAllSelectAction" class="com.internousdev.kiyurumi.action.AdminAllSelectAction" method="execute">
+		<result name="success">adminAllSelect.jsp</result>
+	</action>
+
+
+</package>
+</struts>
